@@ -38,11 +38,9 @@ class ShoutcastOutputStream(modulation.streaming.DataStream):
             delay = self.__delay - time.time()
             if (delay > 0):
                 time.sleep(delay)
-            else:
-                print "Buffer underrun by %i ms"%(delay*-1000)
+                #print "Buffer underrun by %i ms"%(delay*-1000)
             self.__shout.send(buf)
             delay = self.__shout.delay()
-            print "Need to delay %ims"%delay
             self.__delay = time.time()+delay/1000
         except RuntimeError, e:
             self.close()

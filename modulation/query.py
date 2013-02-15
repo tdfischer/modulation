@@ -172,7 +172,7 @@ class LessThanMetadata(MetadataMatch):
     """Matches if the value is less than the metadata"""
     def matches(self, media):
         super(LessThanMetadata, self).matches(media)
-        if (self.key() in media.getMetadata())):
+        if (self.key() in media.getMetadata()):
             return self.value() < media.getMetadata()[self.key()]
 
     def __repr__(self):

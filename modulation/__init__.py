@@ -82,7 +82,8 @@ class Packet(object):
             self._stack = []
             for frame in stack:
                 f = inspect.getframeinfo(frame[0])
-                self._stack.append("File \"%s\", line %i, in %s\n\t%s"%(f[0], f[1], f[2], f[3][0].strip()))
+                if (not (f[3] is None)):
+                    self._stack.append("File \"%s\", line %i, in %s\n\t%s"%(f[0], f[1], f[2], f[3][0].strip()))
             del stack
 
     @property

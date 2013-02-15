@@ -46,7 +46,7 @@ class MediaSink(Plugin):
         self._log.debug("Creating streaming thread %s", self.__thread)
         self.__thread.start()
         self.__lock = threading.Lock()
-        self.__bufSize = 1024
+        self.__bufSize = 4096
         
     def _kill(self):
         super(MediaSink, self)._kill()
